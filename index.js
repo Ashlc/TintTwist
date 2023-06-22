@@ -1,3 +1,11 @@
+let current = 'red';
+let prev = 'white';
+let points = 0;
+let hp = 3;
+let progressBar = document.getElementById('progress-bar');
+let progressInterval;
+let countdown;
+let stopProgressBar = false;
 const colors = [
     'red',
     'blue',
@@ -6,12 +14,6 @@ const colors = [
     'orange',
     'gray'
 ];
-let current = 'red';
-let prev = 'white';
-let points = 0;
-let hp = 3;
-let intervalId;
-let isRunning = false;
 
 const score = document.getElementById("score");
 const input = document.getElementById("answer");
@@ -19,9 +21,9 @@ const input = document.getElementById("answer");
 const randomColor = () => {
     const i = Math.floor(Math.random() * 6);
     console.log("Random index and color:", i, colors[i]);
-    if (colors[i] != current) 
+    if (colors[i] != current)
         return colors[i];
-     else 
+    else
         return randomColor();
 }
 const assignClass = (color) => {
@@ -35,64 +37,69 @@ input.addEventListener('keyup', function (e) {
     if (e.key == 'Enter') {
         const answer = input.value;
         input.value = '';
-        if (answer == "") 
-            return;
-         else 
-            handler(answer);
-        
-
+        if (answer == "") return;
+        if (answer == "grey") answer = gray;
+        handler(answer);
     }
 });
 
-const startProgressBar = (duration) => {
-  const progressBar = document.getElementById('progress-bar');
-  let progress = 0;
-  const increment = 100 / (duration * 1000);
-  let intervalId;
+const startProgressBar = (seconds) => {
+    duration = seconds * 1000; // Convert duration to milliseconds
+    startTime = Date.now();
+    progressInterval = setInterval(updateProgressBar, 50); // Update every 50 milliseconds
+};
 
-  intervalId = setInterval(() => {
-      progress += increment;
-      progressBar.style.width = progress + '%';
+const updateProgressBar = () => {
+    const elapsedTime = Date.now() - startTime;
 
-      if (progress >= 100) {
-          clearInterval(intervalId);
-          // Perform any action after the progress bar reaches 100%
-          console.log('Progress complete!');
-      }
-  }, 10);
-  
-  isRunning = true;
-}
+    if (elapsedTime >= duration || stopProgressBar) {
+        clearInterval(progressInterval);
+        resetProgressBar();
+        return;
+    }
+
+    const progress = elapsedTime / duration;
+    const progressWidth = progress * 100; // Calculate the width based on the progress
+    progressBar.style.width = `${progressWidth}%`;
+};
 
 const resetProgressBar = () => {
-  clearInterval(intervalId);
-  const progressBar = document.getElementById('progress-bar');
-  progressBar.style.width = '0%';
-  isRunning = false;
-}
+    clearInterval(progressInterval);
+    progressBar.style.width = '100%';
+    stopProgressBar = false;
+};
+
+const stopProgress = () => {
+    stopProgressBar = true;
+};
+
 
 const handler = (answer = null) => {
 
-    console.log(answer, current, points);  
+    console.log(answer, current, points);
     if (hp <= 0) return;
     if (answer != null) {
+
+        stopProgress();
+        resetProgressBar();
+
         if ((answer.toUpperCase()) == (current.toUpperCase())) {
             points++;
             score.innerHTML = points;
         }
         else {
-          const box = document.getElementById("input");
-          document.getElementById("hp" + hp).classList.add("is-transparent");
-          box.classList.add("shake");
-          box.addEventListener('animationend', () => {
-            box.classList.remove("shake");
-          });
-    
-          hp--;
+            const box = document.getElementById("input");
+            document.getElementById("hp" + hp).classList.add("is-transparent");
+            box.classList.add("shake");
+            box.addEventListener('animationend', () => {
+                box.classList.remove("shake");
+            });
+
+            hp--;
         }
     }
 
-    const time = 5 - (points * 0.1);
+    const time = 10 - (points * 0.25);
 
     const p = randomColor();
     console.log(p);
@@ -106,8 +113,8 @@ const trigger = document.getElementById("trigger");
 
 trigger.addEventListener('keyup', function (e) {
     if (e.key == " ") {
-      document.getElementById("start").classList.add("hide");
-      input.focus();
-      handler();
-    } 
+        document.getElementById("start").classList.add("hide");
+        input.focus();
+        handler();
+    }
 });
