@@ -56,7 +56,8 @@ const updateProgressBar = () => {
 
     if (elapsedTime >= duration || stopProgressBar) {
         clearInterval(progressInterval);
-        resetProgressBar();
+        miss();
+        handler();
         return;
     }
 
@@ -75,6 +76,16 @@ const stopProgress = () => {
     stopProgressBar = true;
 };
 
+const miss = () => {
+    const box = document.getElementById("input");
+    document.getElementById("hp" + hp).classList.add("is-transparent");
+    box.classList.add("shake");
+    box.addEventListener('animationend', () => {
+        box.classList.remove("shake");
+    });
+
+    hp--;
+}
 
 const handler = (answer = null) => {
 
@@ -90,16 +101,7 @@ const handler = (answer = null) => {
             score.innerHTML = points;
         }
 
-        else {
-            const box = document.getElementById("input");
-            document.getElementById("hp" + hp).classList.add("is-transparent");
-            box.classList.add("shake");
-            box.addEventListener('animationend', () => {
-                box.classList.remove("shake");
-            });
-
-            hp--;
-        }
+        else miss();
     }
 
     if (hp <= 0) {
