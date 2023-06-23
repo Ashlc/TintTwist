@@ -40,8 +40,8 @@ input.addEventListener('keyup', function (e) {
         const answer = input.value;
         input.value = '';
         if (answer == "") return;
-        if (answer == "grey") answer = "gray";
-        handler(answer);
+        if (answer == "grey") handler("gray");
+        else handler(answer);
     }
 });
 
