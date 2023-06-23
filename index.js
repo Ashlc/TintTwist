@@ -103,12 +103,17 @@ const handler = (answer = null) => {
 
         else miss();
     }
-
+    
     if (hp <= 0) {
         document.getElementById("start").classList.remove("hide");
         input.blur();
         isGameStarted = false;
+    
         hp = 3;
+        document.querySelectorAll(".heart").forEach((heart) => {
+            heart.classList.remove('is-transparent');
+        })
+    
         points = 0;
         score.innerHTML = points;
         return;
