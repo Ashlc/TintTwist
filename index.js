@@ -6,6 +6,8 @@ let progressBar = document.getElementById('progress-bar');
 let progressInterval;
 let countdown;
 let stopProgressBar = false;
+let isGameStarted = false;
+
 const colors = [
     'red',
     'blue',
@@ -38,7 +40,7 @@ input.addEventListener('keyup', function (e) {
         const answer = input.value;
         input.value = '';
         if (answer == "") return;
-        if (answer == "grey") answer = gray;
+        if (answer == "grey") answer = "gray";
         handler(answer);
     }
 });
@@ -87,6 +89,7 @@ const handler = (answer = null) => {
             points++;
             score.innerHTML = points;
         }
+
         else {
             const box = document.getElementById("input");
             document.getElementById("hp" + hp).classList.add("is-transparent");
@@ -112,9 +115,12 @@ const handler = (answer = null) => {
 const trigger = document.getElementById("trigger");
 
 trigger.addEventListener('keyup', function (e) {
-    if (e.key == " ") {
-        document.getElementById("start").classList.add("hide");
-        input.focus();
-        handler();
+    if (e.key == ' ') {
+        if (isGameStarted == false){
+            document.getElementById("start").classList.add("hide");
+            input.focus();
+            isGameStarted = true;
+            handler();
+        }
     }
 });
