@@ -5,13 +5,7 @@
 UNDER DEVELOPMENT.
 TintTwist is an interactive game built using JavaScript, HTML, and CSS. The game incorporates the NES.css framework, a nostalgic CSS framework inspired by the NES (Nintendo Entertainment System) console.
 
-## Installation
-
-To run TintTwist, follow these steps:
-
-1. Download the project folder from [GitHub](https://github.com/your-username/TintTwist).
-2. Extract the contents of the downloaded ZIP file to your desired location.
-3. Open the `index.html` file in your preferred web browser.
+[Play it here!](https://ashlc.github.io/TintTwist/)
 
 ## Gameplay
 
@@ -23,7 +17,7 @@ As you gain points, the time for you to answer is shorter and shorter. After 3 m
 - Keyboard: for typing (duh)
 - Spacebar: starts the game
 
-## Technologies Used
+## Resources
 
 - JavaScript
 - HTML
