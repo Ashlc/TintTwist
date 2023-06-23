@@ -17,7 +17,7 @@ As you gain points, the time for you to answer is shorter and shorter. After 3 m
 - Keyboard: for typing (duh)
 - Spacebar: starts the game
 
-## Technologies Used
+## Resources
 
 - JavaScript
 - HTML
