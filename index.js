@@ -79,7 +79,7 @@ const stopProgress = () => {
 const handler = (answer = null) => {
 
     console.log(answer, current, points);
-    if (hp <= 0) return;
+
     if (answer != null) {
 
         stopProgress();
@@ -102,14 +102,25 @@ const handler = (answer = null) => {
         }
     }
 
-    const time = 10 - (points * 0.25);
+    if (hp <= 0) {
+        document.getElementById("start").classList.remove("hide");
+        input.blur();
+        isGameStarted = false;
+        hp = 3;
+        points = 0;
+        score.innerHTML = points;
+        return;
+    }
 
-    const p = randomColor();
-    console.log(p);
-    document.getElementById("word").innerHTML = p.toUpperCase();
-    assignClass(randomColor());
-    prev = current;
-    startProgressBar(time);
+    else {
+        const time = 10 - (points * 0.25);
+        const p = randomColor();
+        console.log(p);
+        document.getElementById("word").innerHTML = p.toUpperCase();
+        assignClass(randomColor());
+        prev = current;
+        startProgressBar(time);
+    }   
 }
 
 const trigger = document.getElementById("trigger");
