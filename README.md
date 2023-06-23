@@ -2,8 +2,7 @@
 
 ## Description
 
-UNDER DEVELOPMENT.
-TintTwist is an interactive game built using JavaScript, HTML, and CSS. The game incorporates the NES.css framework, a nostalgic CSS framework inspired by the NES (Nintendo Entertainment System) console.
+TintTwist is an interactive game built using JavaScript, HTML, and CSS. The game incorporates the NES.css framework, a nostalgic CSS framework inspired by the NES (Nintendo Entertainment System) console. Under development.
 
 [Play it here!](https://ashlc.github.io/TintTwist/)
 
@@ -14,7 +13,7 @@ As you gain points, the time for you to answer is shorter and shorter. After 3 m
 
 ## Controls
 
-- Keyboard: for typing (duh)
+- A : for typing (duh)
 - Spacebar: starts the game
 
 ## Resources
@@ -43,7 +42,7 @@ NonCommercial: You may not use the material for commercial purposes.
 
 ## Acknowledgments
 
-Special thanks to B.C.Rikko for creating and maintaining NES.css, the CSS framework that helped bring the nostalgic NES aesthetics to this project.
+Special thanks to [B.C.Rikko](https://github.com/BcRikko) for creating and maintaining NES.css, the CSS framework that helped bring the nostalgic NES aesthetics to this project.
 
 ## Feedback and Contributions
 
