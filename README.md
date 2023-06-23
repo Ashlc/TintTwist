@@ -13,7 +13,7 @@ As you gain points, the time for you to answer is shorter and shorter. After 3 m
 
 ## Controls
 
-- A : for typing (duh)
+- A to Z: for typing (duh)
 - Spacebar: starts the game
 
 ## Resources
