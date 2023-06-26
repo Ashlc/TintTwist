@@ -120,7 +120,10 @@ const handler = (answer = null) => {
     }
 
     else {
-        const time = 10 - (points * 0.25);
+        
+        let time;
+        if(points > 25) {time = 10 - (points * 0.15);}
+        else {time = 10 - (points * 0.25);}
         const p = randomColor();
         console.log(p);
         document.getElementById("word").innerHTML = p.toUpperCase();
