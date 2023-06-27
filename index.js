@@ -125,7 +125,7 @@ const handler = (answer = null) => {
         
         let time;
         if(points > 25) {time = 10 - (points * 0.175);}
-        else {time = 5 - (points * 0.25);}
+        else {time = 10 - (points * 0.25);}
         console.log("Time: " + time);
         const p = randomColor();
         console.log(p);
