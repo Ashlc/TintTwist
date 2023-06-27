@@ -45,10 +45,10 @@ input.addEventListener('keyup', function (e) {
     }
 });
 
-const startProgressBar = (seconds) => {
-    duration = seconds * 1000; // Convert duration to milliseconds
+const startProgressBar = (seconds) => { //Major W to GPT for helping me with this.
+    duration = seconds * 1000;
     startTime = Date.now();
-    progressInterval = setInterval(updateProgressBar, 50); // Update every 50 milliseconds
+    progressInterval = setInterval(updateProgressBar, 50);
 };
 
 const updateProgressBar = () => {
@@ -57,12 +57,11 @@ const updateProgressBar = () => {
     if (elapsedTime >= duration || stopProgressBar) {
         clearInterval(progressInterval);
         miss();
-        handler();
         return;
     }
 
     const progress = elapsedTime / duration;
-    const progressWidth = progress * 100; // Calculate the width based on the progress
+    const progressWidth = progress * 100;
     progressBar.style.width = `${progressWidth}%`;
 };
 
@@ -78,6 +77,8 @@ const stopProgress = () => {
 
 const miss = () => {
     const box = document.getElementById("input");
+    input.value = '';
+    input.focus();  
     document.getElementById("hp" + hp).classList.add("is-transparent");
     box.classList.add("shake");
     box.addEventListener('animationend', () => {
@@ -85,6 +86,7 @@ const miss = () => {
     });
 
     hp--;
+    handler();
 }
 
 const handler = (answer = null) => {
@@ -122,8 +124,9 @@ const handler = (answer = null) => {
     else {
         
         let time;
-        if(points > 25) {time = 10 - (points * 0.15);}
-        else {time = 10 - (points * 0.25);}
+        if(points > 25) {time = 10 - (points * 0.175);}
+        else {time = 5 - (points * 0.25);}
+        console.log("Time: " + time);
         const p = randomColor();
         console.log(p);
         document.getElementById("word").innerHTML = p.toUpperCase();
