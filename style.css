@@ -15,36 +15,7 @@
 }
 
 .title {
-    text-shadow: 5px 5px 0px #3C7A89;
-    animation: color-shadow 5s infinite;
     color: #fff;
-}
-
-.colorize {
-    animation-name: colors;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    text-shadow: 5px 5px 0px #fff;
-}
-
-@keyframes color-shadow {
-    100% {text-shadow: 5px 5px 0px#2ecc71;}
-    84% {text-shadow: 5px 5px 0px#3498db;}
-    68% {text-shadow: 5px 5px 0px#9b59b6;}
-    51% {text-shadow: 5px 5px 0px#e74c3c;}
-    34% {text-shadow: 5px 5px 0px#e67e22;}
-    17% {text-shadow: 5px 5px 0px#f1c40f;}
-    0% {text-shadow: 5px 5px 0px #2ecc71;}
-}
-
-@keyframes colors {
-    0% {color:#2ecc71;}
-    17% {color:#3498db;}
-    34% {color:#9b59b6;}
-    51% {color:#e74c3c;}
-    68% {color:#e67e22;}
-    84% {color:#f1c40f;}
-    100% {color:#2ecc71;}
 }
 
 .contents{
@@ -145,31 +116,31 @@
     padding: 5vh 10vw 5vh 10vw;
 }
 
-.red {
+.vermelho {
     background-color: #e74c3c !important;
 }
 
-.yellow {
+.amarelo {
     background-color: #f1c40f !important;
 }
 
-.purple {
+.roxo {
     background-color: #9b59b6 !important;
 }
 
-.blue {
+.azul {
     background-color: #3498db !important;
 }
 
-.orange {
+.laranja {
     background-color: #e67e22 !important;
 }
 
-.green {
+.verde {
     background-color: #2ecc71 !important;
 }
 
-.gray {
+.cinza   {
     background-color: #95a5a6 !important;
 }
 

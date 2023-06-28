@@ -1,5 +1,5 @@
-let current = 'red';
-let prev = 'white';
+let current = 'vermelho';
+let prev = 'branco';
 let points = 0;
 let hp = 3;
 let progressBar = document.getElementById('progress-bar');
@@ -9,19 +9,20 @@ let stopProgressBar = false;
 let isGameStarted = false;
 
 const colors = [
-    'red',
-    'blue',
-    'green',
-    'yellow',
-    'orange',
-    'gray'
+    'vermelho',
+    'azul',
+    'verde',
+    'amarelo',
+    'laranja',
+    'cinza',
+    'roxo'
 ];
 
 const score = document.getElementById("score");
 const input = document.getElementById("answer");
 
 const randomColor = () => {
-    const i = Math.floor(Math.random() * 6);
+    const i = Math.floor(Math.random() * colors.length);
     console.log("Random index and color:", i, colors[i]);
     if (colors[i] != current)
         return colors[i];
@@ -40,7 +41,6 @@ input.addEventListener('keyup', function (e) {
         const answer = input.value;
         input.value = '';
         if (answer == "") return;
-        if (answer == "grey") handler("gray");
         else handler(answer);
     }
 });
