@@ -9,13 +9,13 @@ let stopProgressBar = false;
 let isGameStarted = false;
 
 const colors = [
-    'vermelho',
-    'azul',
-    'verde',
-    'amarelo',
-    'laranja',
-    'cinza',
-    'roxo'
+    'red',
+    'blue',
+    'green',
+    'yellow',
+    'orange',
+    'gray',
+    'purple'
 ];
 
 const score = document.getElementById("score");
