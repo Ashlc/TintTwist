@@ -95,8 +95,8 @@ const handler = (answer = null) => {
 
     if (answer != null) {
 
-        stopProgress();
         resetProgressBar();
+        stopProgress();
 
         if ((answer.toUpperCase()) == (current.toUpperCase())) {
             points++;
@@ -110,6 +110,8 @@ const handler = (answer = null) => {
         document.getElementById("start").classList.remove("hide");
         input.blur();
         isGameStarted = false;
+        stopPorgress();
+        resetProgressBar();
     
         hp = 3;
         document.querySelectorAll(".heart").forEach((heart) => {
