@@ -107,11 +107,10 @@ const handler = (answer = null) => {
     }
     
     if (hp <= 0) {
+        stopProgress();
         document.getElementById("start").classList.remove("hide");
         input.blur();
         isGameStarted = false;
-        stopPorgress();
-        resetProgressBar();
     
         hp = 3;
         document.querySelectorAll(".heart").forEach((heart) => {
