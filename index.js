@@ -107,7 +107,6 @@ const handler = (answer = null) => {
     }
     
     if (hp <= 0) {
-        stopProgress();
         document.getElementById("start").classList.remove("hide");
         input.blur();
         isGameStarted = false;
@@ -119,6 +118,9 @@ const handler = (answer = null) => {
     
         points = 0;
         score.innerHTML = points;
+        clearInterval(progressInterval);
+        progressBar.style.width = '100%';
+        stopProgressBar = true;
         return;
     }
 
