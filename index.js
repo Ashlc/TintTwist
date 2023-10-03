@@ -95,8 +95,8 @@ const handler = (answer = null) => {
 
     if (answer != null) {
 
-        resetProgressBar();
         stopProgress();
+        resetProgressBar();
 
         if ((answer.toUpperCase()) == (current.toUpperCase())) {
             points++;
@@ -118,9 +118,6 @@ const handler = (answer = null) => {
     
         points = 0;
         score.innerHTML = points;
-        clearInterval(progressInterval);
-        progressBar.style.width = '100%';
-        stopProgressBar = true;
         return;
     }
 
