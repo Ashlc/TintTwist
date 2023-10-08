@@ -1,0 +1,23 @@
+.page {
+    background-color: #212529;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.color {
+  font-size: 32px;
+}
+
+.input-style.nes-input {
+  width: 30vw;
+  
+  @media screen and (max-width: 768px) {
+    width: 80vw;  
+  }
+  @media screen and (max-width: 480px) {
+    width: 90vw;  
+  }
+}
