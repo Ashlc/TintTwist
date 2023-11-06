@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
 }
 
 .color {
@@ -48,6 +49,7 @@
 
 #progress-bar {
   height: 100%;
+  width: 100%;
   background-color: #fff;
 }
 
@@ -71,4 +73,46 @@
   font-size: 32px; 
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.colorize {
+  animation-name: colors;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  text-shadow: 5px 5px 0px #fff;
+}
+
+.title {
+  font-size: 46px;
+  margin-bottom: 3rem;
+  text-shadow: 5px 5px 0px #3C7A89;
+  animation: color-shadow 5s infinite;
+  color: #fff;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@keyframes color-shadow {
+  100% {text-shadow: 5px 5px 0px#2ecc71;}
+  84% {text-shadow: 5px 5px 0px#3498db;}
+  68% {text-shadow: 5px 5px 0px#9b59b6;}
+  51% {text-shadow: 5px 5px 0px#e74c3c;}
+  34% {text-shadow: 5px 5px 0px#e67e22;}
+  17% {text-shadow: 5px 5px 0px#f1c40f;}
+  0% {text-shadow: 5px 5px 0px #2ecc71;}
+}
+
+@keyframes colors {
+  0% {color:#2ecc71;}
+  17% {color:#3498db;}
+  34% {color:#9b59b6;}
+  51% {color:#e74c3c;}
+  68% {color:#e67e22;}
+  84% {color:#f1c40f;}
+  100% {color:#2ecc71;}
 }

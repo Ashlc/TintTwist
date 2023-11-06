@@ -10,46 +10,59 @@ function Handler() {
   const [text, setText] = useState("???");
   const [hp, setHP] = useState(3);
   const [playerGuess, setPlayerGuess] = useState("");
-  const [percentage, setPercentage] = useState(1);
+  const [percentage, setPercentage] = useState("100%");
   const [duration, setDuration] = useState(8000);
   const [intervalRef, setIntervalRef] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [gameRunning, setGameRunning] = useState(false);
 
-  window.addEventListener("keyup", function (e) {
-    if (e.key === " ") {
-      document.getElementById("playerInput").focus();
-      setColor(randomColor().hex);
-      setText(randomColor().name);
-      setGameRunning(true);
-      setStartTime(Date.now());
-    }
-  });
-
-  document.getElementById("playerInput")?.addEventListener("keyup", function (e) {
-    if (e.key === "Enter" && gameRunning) {
-      if (playerGuess === "") return;
-      if (playerGuess === text) {
-        setColor(randomColor());
+  useEffect(() => {
+    const handleSpaceKeyDown = (e) => {
+      if (e.key === " " && !gameRunning) {
+        document.getElementById("playerInput").focus();
+        setColor(randomColor().hex);
         setText(randomColor().name);
-      } else {
-        setHP(hp - 1);
-        hpCheck();
-        newRound();
+        setGameRunning(true);
+        setStartTime(Date.now());
       }
-    }
-  });
+    };
+
+    const handleEnterKeyDown = (e) => {
+      if (e.key === "Enter" && gameRunning) {
+        if(playerGuess === "") return;
+        if (playerGuess === text) {
+          setColor(randomColor());
+          setText(randomColor().name);
+          return; 
+        } else {
+          miss();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleSpaceKeyDown);
+    document
+      .getElementById("playerInput")
+      .addEventListener("keydown", handleEnterKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleSpaceKeyDown);
+      document
+        .getElementById("playerInput")
+        .removeEventListener("keydown", handleEnterKeyDown);
+    };
+  }, [gameRunning, playerGuess, text]);
 
   const newRound = () => {
     setStartTime(Date.now());
-    setPercentage(1);
     setPlayerGuess("");
+    setPercentage("100%");
     setColor(randomColor().hex);
     setText(randomColor().name);
   };
 
   const miss = () => {
-    clearInterval(intervalRef); 
+    clearInterval(intervalRef);
     const newHp = hp - 1;
     setHP(newHp);
     hpCheck();
@@ -84,13 +97,18 @@ function Handler() {
         setPercentage(progressWidth);
       }, 50);
       setIntervalRef(interval);
-  
+
       return () => clearInterval(interval);
     }
   }, [gameRunning, startTime, duration]);
 
   return (
     <div className="is-centered page">
+      <div className="is-dark title-container">
+        <p className="nes-text title">
+          <span className="colorize">Tint</span>Twist
+        </p>
+      </div>
       {gameRunning ? null : (
         <div className="start" id="start">
           <p className="start-text">PRESS [SPACE] TO START</p>
@@ -102,7 +120,7 @@ function Handler() {
           id="playerInput"
           type="text"
           value={playerGuess}
-          onChange={(e) => setPlayerGuess(e.target.value.toUpperCase())}
+          onChange={(e) => setPlayerGuess(e.target.value.trim().toUpperCase())}
           className="nes-input is-dark input-style"
         />
         <ProgressBar percentage={percentage} />
