@@ -1,30 +1,30 @@
 import React from 'react';
 
-function HP({n = 3}) {
+function HP({currentHp = 3}) {
 
-  switch (n) {
+  switch (currentHp) {
     case 1:
         return (
             <div className="flex">
-                <i class="nes-icon heart is-medium"/>
-                <i class="nes-icon heart is-medium"/>
-                <i class="nes-icon heart is-medium"/>
+                <i className="nes-icon heart is-medium is-dark"/>
+                <i className="nes-icon heart is-medium is-transparent is-dark"/>
+                <i className="nes-icon heart is-medium is-transparent is-dark"/>
             </div>
         )
     case 2:
         return (
             <div className="flex">
-                <i class="nes-icon heart is-medium"/>
-                <i class="nes-icon heart is-medium"/>
-                <i class="nes-icon heart is-medium"/>
+                <i className="nes-icon heart is-medium is-dark"/>
+                <i className="nes-icon heart is-medium is-dark"/>
+                <i className="nes-icon heart is-medium is-transparent is-dark"/>
             </div>
         )
     case 3:
         return (
             <div className="flex">
-                <i class="nes-icon heart is-medium"/>
-                <i class="nes-icon heart is-medium"/>
-                <i class="nes-icon heart is-medium"/>
+                <i className="nes-icon heart is-medium is-dark"/>
+                <i className="nes-icon heart is-medium is-dark"/>
+                <i className="nes-icon heart is-medium is-dark"/>
             </div>
         )
         default:
