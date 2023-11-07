@@ -161,6 +161,7 @@ function Handler() {
 				<Color color={color} text={text} />
 				<input
 					id="playerInput"
+					autoComplete="off"
 					type="text"
 					value={playerGuess}
 					onChange={(e) => setPlayerGuess(e.target.value.toUpperCase().trim())}
