@@ -27,6 +27,7 @@
 
 .nes-container.main { 
   padding: 30px 40px !important;
+  margin-bottom: 2vh;
 }
 
 .flex {
@@ -56,8 +57,9 @@
 .start {
   position: absolute;
   text-shadow: 10px 10px 0px #212529;
-  background-color: #2125298a;
+  background-color: #212529d5;
   display: flex;
+  flex-direction: column;
   color: #fff;
   top: 0;
   left: 0;
@@ -95,6 +97,51 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  background: none;
+  width: 400px;
+  border: white 2px solid;
+}
+
+.trophy-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  margin: 1rem;
+  appearance: none;
+  background: transparent;
+  border: none;
+}
+
+.leaderboard-list {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  width: 90%;
+}
+
+.leaderboard-frame {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.5rem;
+}
+
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  margin: 1rem;
+}
+
+.tropy {
+  height: 50px;
+  width: 50px;
 }
 
 @keyframes color-shadow {
