@@ -1,53 +1,70 @@
-# TintTwist
+# Getting Started with Create React App
 
-## Description
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-TintTwist is an interactive game built using JavaScript, HTML, and CSS. The game incorporates the NES.css framework, a nostalgic CSS framework inspired by the NES (Nintendo Entertainment System) console. Under development.
+## Available Scripts
 
-[Play it here!](https://ashlc.github.io/TintTwist/)
+In the project directory, you can run:
 
-## Gameplay
+### `npm start`
 
-TintTwist is an attention game where the objective is to type the background color of the tile while the text says the name of another color!
-As you gain points, the time for you to answer is shorter and shorter. After 3 mistakes, you lose.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Controls
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- A to Z: for typing (duh)
-- Spacebar: starts the game
+### `npm test`
 
-## Resources
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- JavaScript
-- HTML
-- CSS
-- NES.css
+### `npm run build`
 
-## Credits
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- NES.css: The CSS framework used in this project. Visit the [NES.css GitHub page](https://github.com/nostalgic-css/NES.css) for more information about the framework.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## License
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-TintTwist is licensed under the Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license.
+### `npm run eject`
 
-This means you are free to:
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-Share: Copy and redistribute the material in any medium or format.
-Adapt: Remix, transform, and build upon the material.
-Under the following terms:
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Attribution: You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-NonCommercial: You may not use the material for commercial purposes.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## Acknowledgments
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-Special thanks to [B.C.Rikko](https://github.com/BcRikko) for creating and maintaining NES.css, the CSS framework that helped bring the nostalgic NES aesthetics to this project.
+## Learn More
 
-## Feedback and Contributions
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Feedback, bug reports, and contributions are welcome! If you encounter any issues or have suggestions for improvements, please submit them via the [GitHub issue tracker](https://github.com/your-username/TintTwist/issues).
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Author
+### Code Splitting
 
-TintTwist is developed and maintained by [Ashlc](https://github.com/Ashlc).
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

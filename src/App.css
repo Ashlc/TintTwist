@@ -1,0 +1,165 @@
+.page {
+    background-color: #212529;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.color {
+  font-size: 32px;
+}
+
+.input-style.nes-input {
+  width: 30vw;
+
+  @media screen and (max-width: 768px) {
+    width: 60vw;  
+
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 90vw;  
+  } 
+}
+
+.nes-container.main { 
+  padding: 30px 40px !important;
+  margin-bottom: 2vh;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.pbar-container {
+  width: 100%;
+  height: 15px;
+  background-color: #212529;
+  margin-bottom: 1vh;
+  margin-top: 1.5rem;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+
+.start {
+  position: absolute;
+  text-shadow: 10px 10px 0px #212529;
+  background-color: #212529d5;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-text {
+  font-size: 32px; 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.colorize {
+  animation-name: colors;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  text-shadow: 5px 5px 0px #fff;
+}
+
+.title {
+  font-size: 46px;
+  margin-bottom: 3rem;
+  text-shadow: 5px 5px 0px #3C7A89;
+  animation: color-shadow 5s infinite;
+  color: #fff;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  background: none;
+  width: 400px;
+  border: white 2px solid;
+}
+
+.trophy-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  margin: 1rem;
+  appearance: none;
+  background: transparent;
+  border: none;
+}
+
+.leaderboard-list {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  width: 90%;
+}
+
+.leaderboard-frame {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.5rem;
+}
+
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  margin: 1rem;
+}
+
+.tropy {
+  height: 50px;
+  width: 50px;
+}
+
+@keyframes color-shadow {
+  100% {text-shadow: 5px 5px 0px#2ecc71;}
+  84% {text-shadow: 5px 5px 0px#3498db;}
+  68% {text-shadow: 5px 5px 0px#9b59b6;}
+  51% {text-shadow: 5px 5px 0px#e74c3c;}
+  34% {text-shadow: 5px 5px 0px#e67e22;}
+  17% {text-shadow: 5px 5px 0px#f1c40f;}
+  0% {text-shadow: 5px 5px 0px #2ecc71;}
+}
+
+@keyframes colors {
+  0% {color:#2ecc71;}
+  17% {color:#3498db;}
+  34% {color:#9b59b6;}
+  51% {color:#e74c3c;}
+  68% {color:#e67e22;}
+  84% {color:#f1c40f;}
+  100% {color:#2ecc71;}
+}
