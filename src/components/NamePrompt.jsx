@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 function NamePrompt({visible, setVisible}) {
 	const [nameValue, setNameValue] = useState("");
 	const handleSaveName = () => {
-		if(nameValue !== "") localStorage.setItem("name", nameValue);
+		if (nameValue !== "") localStorage.setItem("name", nameValue);
+		else if (localStorage.getItem("name") === null) localStorage.setItem("name", "___");
 		setVisible(false);
 	};
 	if(visible) return (
@@ -12,6 +13,7 @@ function NamePrompt({visible, setVisible}) {
 			style={{gap: "10px"}}>
 			<div className="nes-field">
 				<input
+					autoComplete="off"
 					style={{width: "6rem", textAlign: "center"}}
 					type="text"
 					value={nameValue}
