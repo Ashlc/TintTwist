@@ -26,7 +26,20 @@ const colors = [
 	{
 		name: "gray",
 		hex: "#95a5a6"
+	},
+	{
+		name: "white",
+		hex: "#fff"
+	},
+	{
+		name:"pink",
+		hex: "#fd79a8"
+	},
+	{
+		name: "brown",
+		hex: "#7d5240"
 	}
+	
 ];
 
 export default colors;

@@ -1,34 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
+import EmptyHeart from "../assets/icons/empty_heart.svg";
+import Heart from "../assets/icons/heart.svg";
+
 
 function HP({ currentHp = 3 }) {
 	switch (currentHp) {
 	case 1:
 		return (
-			<div className="flex">
-				<i className="nes-icon heart is-medium is-dark" />
-				<i className="nes-icon heart is-medium is-transparent is-dark" />
-				<i className="nes-icon heart is-medium is-transparent is-dark" />
+			<div className="flex" style={{gap: "3px"}}>
+				<Heart height="45px" color="#fff" />
+				<EmptyHeart height="45px" color="#fff" />
+				<EmptyHeart height="45px" color="#fff" />
 			</div>
 		);
 	case 2:
 		return (
-			<div className="flex">
-				<i className="nes-icon heart is-medium is-dark" />
-				<i className="nes-icon heart is-medium is-dark" />
-				<i className="nes-icon heart is-medium is-transparent is-dark" />
+			<div className="flex" style={{gap: "3px"}}>
+				<Heart height="45px" color="#fff" />
+				<Heart height="45px" color="#fff" />
+				<EmptyHeart height="45px" color="#fff" />
 			</div>
 		);
 	case 3:
 		return (
-			<div className="flex">
-				<i className="nes-icon heart is-medium is-dark" />
-				<i className="nes-icon heart is-medium is-dark" />
-				<i className="nes-icon heart is-medium is-dark" />
+			<div className="flex" style={{gap: "3px"}}>
+				<Heart height="45px" color="#fff" />
+				<Heart height="45px" color="#fff" />
+				<Heart height="45px" color="#fff" />
 			</div>
 		);
 	default:
-		return <div className="flex" />;
+		return <div className="flex" style={{gap: "3px"}}>
+			<EmptyHeart height="45px" color="#fff" />
+			<EmptyHeart height="45px" color="#fff" />
+			<EmptyHeart height="45px" color="#fff" />
+		</div>;
 	}
 }
 
