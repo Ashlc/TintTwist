@@ -47,11 +47,15 @@ function Handler() {
 		setColor({ hex: "#fff", name: "???" });
 		setPlayerGuess("");
 		setPercentage(100);
+		setDuration(8000);
 		setHP(3);
 		handleCookies();
 	};
 
-	const randomColor = () => colors[Math.floor(Math.random() * colors.length)];
+	const randomColor = () => {
+		const randomIndex = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / (0xffffffff + 1) * colors.length);
+		return colors[randomIndex];
+	};
 	
 	const newRound = () => {
 		setStartTime(Date.now());
