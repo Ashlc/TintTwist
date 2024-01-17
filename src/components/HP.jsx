@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import EmptyHeart from "../assets/icons/empty_heart.svg";
-import Heart from "../assets/icons/heart.svg";
+import EmptyHeart from "../assets/icons/EmptyHeart";
+import Heart from "../assets/icons/Heart";
 
 
 function HP({ currentHp = 3 }) {

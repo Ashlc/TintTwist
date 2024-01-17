@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import PropTypes from "prop-types";
 
 function NamePrompt({visible, setVisible}) {
-	const [nameValue, setNameValue] = useState("");
+	const [nameValue, setNameValue] = useState(localStorage.getItem("name") || "___");
 	const handleSaveName = () => {
 		if (nameValue !== "") localStorage.setItem("name", nameValue);
 		else if (localStorage.getItem("name") === null) localStorage.setItem("name", "___");
@@ -18,6 +18,7 @@ function NamePrompt({visible, setVisible}) {
 					type="text"
 					value={nameValue}
 					onChange={(e) => setNameValue(e.target.value.toUpperCase().trim())}
+					onFocus={(e) => e.target.select()}
 					maxLength={3}
 					className="nes-input is-dark"
 					placeholder="ABC" />

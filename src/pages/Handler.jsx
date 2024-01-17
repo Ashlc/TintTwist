@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useGlitch } from "react-powerglitch";
 import colors from "../service/ColorBank";
 import Color from "../components/Color";
 import "../App.css";
 import HP from "../components/HP";
 import ProgressBar from "../components/ProgressBar";
 import Leaderboard from "../components/Leaderboard";
-import Trophy from "../assets/icons/trophy.svg";
+import Trophy from "../assets/icons/Trophy";
+import EditBox from "../assets/icons/EditBox";
 import Score from "../components/Score";
 import Start from "../components/Start";
+import NamePrompt from "../components/NamePrompt";
+import Fade from "../components/Fade";
 
 function Handler() {
 	const [color, setColor] = useState({ hex: "#fff", name: "???" });
@@ -16,14 +20,29 @@ function Handler() {
 	const [score, setScore] = useState(0);
 	const [playerGuess, setPlayerGuess] = useState("");
 	const [percentage, setPercentage] = useState(100);
-	const [duration, setDuration] = useState(8000);
+	const [duration, setDuration] = useState(6000);
 	const [intervalRef, setIntervalRef] = useState(null);
 	const [startTime, setStartTime] = useState(null);
 	const [gameRunning, setGameRunning] = useState(false);
 	const [leaderboardVisible, setLeaderboardVisible] = useState(false);
+	const [nameInputVisible, setNameInputVisible] = useState(false);
+	const glitch = useGlitch(
+		{
+			playMode: "manual",
+			timing: {
+				duration: 450,
+				delay: 0,
+				iterations: 1
+			}
+		}
+	);
 
 	const handleLeaderboard = () => {
 		setLeaderboardVisible(!leaderboardVisible);
+	};
+	
+	const handleNameInput = () => {
+		setNameInputVisible(!nameInputVisible);
 	};
 
 	const handleCookies = () => {
@@ -40,7 +59,7 @@ function Handler() {
 		}
 		setScore(0);
 	};
-
+	
 	const gameOver = () => {
 		setGameRunning(false);
 		setText({ hex: "#fff", name: "GAME OVER" });
@@ -53,7 +72,7 @@ function Handler() {
 	};
 
 	const randomColor = () => {
-		const randomIndex = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / (0xffffffff + 1) * colors.length);
+		const randomIndex = Math.floor(Math.random() * colors.length);
 		return colors[randomIndex];
 	};
 	
@@ -65,20 +84,18 @@ function Handler() {
 		setText(randomColor());
 	};
 
-	const hpCheck = () => {
-		if (hp <= 0) {
-			gameOver();
-		}
-	};
-
+	
 	const miss = () => {
 		clearInterval(intervalRef);
 		const newHp = hp - 1;
+		if(newHp >= 0) glitch.startGlitch();
+		if (newHp === 0) {
+			gameOver();
+			return;
+		}
 		setHP(newHp);
-		hpCheck();
 		newRound();
 	};
-  
   
 	useEffect(() => {
 		const handleSpaceKeyDown = (e) => {
@@ -145,11 +162,23 @@ function Handler() {
 
 	return (
 		<div className="is-centered page">
-			{gameRunning ? null : <Start />}
+			{!gameRunning && !nameInputVisible && <Start />}
+			 {!gameRunning && nameInputVisible && (
+				<Fade>
+					<NamePrompt visible={nameInputVisible} setVisible={setNameInputVisible}/>
+				</Fade>
+			 )}
 			{!leaderboardVisible && (
-				<button type="button" onClick={handleLeaderboard} className="top-right trophy-button">
-					<Trophy height="50px" color="#fff" />
-				</button>)}
+				<div className="flex top-right top-button" style={{gap: "3px"}}>
+					{!gameRunning && (
+						<button type="button" onClick={handleNameInput}>
+							<EditBox height="45px" color="#fff" />
+						</button>)}
+					<button type="button" onClick={handleLeaderboard}>
+						<Trophy height="45px" color="#fff" />
+					</button>
+				</div>
+			)}
 			<div className="top-right">
 				<Leaderboard
 					visible={leaderboardVisible}
@@ -161,9 +190,10 @@ function Handler() {
 					<span className="colorize">Tint</span>Twist
 				</p>
 			</div>
-			<div className="nes-container is-dark is-rounded is-centered main">
+			<div ref={glitch.ref} className="nes-container is-dark is-rounded is-centered main">
 				<Color color={color} text={text} />
 				<input
+					ref={glitch.ref}
 					id="playerInput"
 					autoComplete="off"
 					type="text"

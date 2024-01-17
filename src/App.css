@@ -1,6 +1,7 @@
 .page {
     background-color: #212529;
     display: flex;
+    padding-bottom: 15vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -85,7 +86,7 @@
 }
 
 .title {
-  font-size: 46px;
+  font-size: 36px;
   margin-bottom: 3rem;
   text-shadow: 5px 5px 0px #3C7A89;
   animation: color-shadow 5s infinite;
@@ -108,15 +109,18 @@
   border: white 2px solid;
 }
 
-.trophy-button {
+button {
+  appearance: none;
+  background: transparent;
+  border: none;
+}
+
+.top-button {
   position: absolute;
   top: 0;
   right: 0;
   z-index: 5;
   margin: 1rem;
-  appearance: none;
-  background: transparent;
-  border: none;
 }
 
 .leaderboard-list {
@@ -142,6 +146,14 @@
 .tropy {
   height: 50px;
   width: 50px;
+}
+
+.fade{
+  background: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 @keyframes color-shadow {
